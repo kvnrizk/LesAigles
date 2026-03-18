@@ -137,11 +137,24 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-.hero-photo {
+.hero-slideshow {
   position: absolute;
   inset: 0;
-  background: url('../assets/photos/team-spirit.jpg') center center / cover no-repeat;
   z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
 }
 
 .hero-overlay {

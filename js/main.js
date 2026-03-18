@@ -1,5 +1,15 @@
 // Les Aigles — Main JS
-// Scroll animations, nav behavior, smooth scroll
+// Scroll animations, nav behavior, smooth scroll, hero slideshow
+
+// Hero photo slideshow — rotates every 3 seconds
+const slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 3000);
 
 // Nav background on scroll
 const nav = document.getElementById('nav');
