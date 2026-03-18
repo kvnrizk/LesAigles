@@ -1,3 +1,36 @@
+/* === FONTS === */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* === RESET === */
 *, *::before, *::after {
   margin: 0;
@@ -40,7 +73,7 @@ ul { list-style: none; }
   --body-text: #C8C8C8;
   --muted: #888888;
   --dark-card: #222222;
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Satoshi', 'Arial Black', Helvetica, sans-serif;
   --font-body: 'Lora', Georgia, serif;
 }
 
@@ -80,9 +113,10 @@ ul { list-style: none; }
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  letter-spacing: 2px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--body-text);
   transition: color 0.3s ease;
@@ -99,8 +133,27 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--forest-dark) 0%, #1a3d2a 40%, var(--forest-dark) 100%);
+  background: var(--forest-dark);
   overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/photos/team-spirit.jpg') center center / cover no-repeat;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 31, 21, 0.85) 0%,
+    rgba(27, 107, 58, 0.6) 40%,
+    rgba(13, 31, 21, 0.9) 100%
+  );
+  z-index: 1;
 }
 
 .hero-mountains {
@@ -111,12 +164,13 @@ ul { list-style: none; }
   height: 30%;
   background: linear-gradient(transparent, var(--deep-black));
   clip-path: polygon(0% 60%, 8% 40%, 15% 55%, 25% 25%, 35% 50%, 45% 15%, 55% 45%, 65% 20%, 75% 50%, 85% 30%, 92% 55%, 100% 35%, 100% 100%, 0% 100%);
-  opacity: 0.15;
+  opacity: 0.25;
+  z-index: 2;
 }
 
 .hero-content {
   text-align: center;
-  z-index: 1;
+  z-index: 3;
 }
 
 .hero-logo {
@@ -128,12 +182,14 @@ ul { list-style: none; }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 4.5rem;
-  font-style: italic;
-  font-weight: 700;
-  color: var(--mountain-gold);
-  letter-spacing: 4px;
+  font-size: 5.5rem;
+  font-style: normal;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 8px;
+  text-transform: uppercase;
   margin-bottom: 12px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
@@ -150,7 +206,7 @@ ul { list-style: none; }
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  z-index: 1;
+  z-index: 3;
 }
 
 .hero-scroll span {
@@ -188,10 +244,12 @@ ul { list-style: none; }
 .section-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
   color: var(--mountain-gold);
   margin-bottom: 48px;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 /* === MATCHES — BENTO GRID === */
@@ -511,7 +569,7 @@ ul { list-style: none; }
 .timeline-content h3 {
   font-family: var(--font-heading);
   font-size: 1.2rem;
-  font-style: italic;
+  font-weight: 700;
   color: white;
   margin-bottom: 8px;
 }
@@ -530,8 +588,8 @@ ul { list-style: none; }
 }
 
 .section-tagline {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-family: var(--font-body);
+  font-size: 1.2rem;
   font-style: italic;
   color: var(--body-text);
   margin-top: -32px;
@@ -548,7 +606,9 @@ ul { list-style: none; }
 .se-text h3 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
-  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: white;
   margin-bottom: 16px;
   margin-top: 32px;
@@ -781,7 +841,7 @@ ul { list-style: none; }
 /* === RESPONSIVE — TABLET === */
 @media (max-width: 1024px) {
   .container { padding: 0 32px; }
-  .hero-title { font-size: 3.5rem; }
+  .hero-title { font-size: 4rem; }
   .bento-grid { grid-template-columns: 1fr 1fr; }
   .bento-next-match { grid-row: span 1; grid-column: span 2; }
   .se-grid { grid-template-columns: 1fr; }
@@ -815,7 +875,7 @@ ul { list-style: none; }
   .nav-links a { font-size: 1rem; }
 
   /* Hero */
-  .hero-title { font-size: 2.5rem; }
+  .hero-title { font-size: 3rem; }
   .hero-subtitle { font-size: 0.8rem; letter-spacing: 4px; }
   .hero-logo { width: 120px; }
 
