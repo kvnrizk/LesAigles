@@ -456,68 +456,67 @@ ul { list-style: none; }
 }
 
 .position-label {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: 0.75rem;
+  font-weight: 900;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--mountain-gold);
   margin-bottom: 20px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.15);
 }
 
-.player-grid {
+.jersey-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
 }
 
-.player-card {
-  background: rgba(255, 255, 255, 0.03);
+.jersey-card {
+  background: var(--deep-black);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 10px;
+  padding: 20px 16px;
   text-align: center;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.player-card:hover {
+.jersey-card:hover {
   transform: translateY(-4px);
   border-color: var(--eagle-green);
   box-shadow: 0 8px 30px rgba(27, 107, 58, 0.15);
 }
 
-.player-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--forest-dark), #1a3d2a);
-  margin: 0 auto 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.player-number {
+.jersey-number {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 2.8rem;
   font-weight: 900;
   color: var(--mountain-gold);
+  line-height: 1;
 }
 
-.player-name {
+.jersey-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--eagle-green), transparent);
+  margin: 10px 0;
+}
+
+.jersey-lastname {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 900;
   color: white;
-  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.player-position {
+.jersey-firstname {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--muted);
-  font-style: italic;
+  margin-top: 2px;
 }
 
 /* === HISTORY TIMELINE === */
@@ -898,7 +897,9 @@ ul { list-style: none; }
   .bento-next-match { grid-column: span 1; }
 
   /* Team */
-  .player-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .jersey-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .jersey-number { font-size: 2.2rem; }
+  .jersey-lastname { font-size: 0.75rem; }
 
   /* Timeline */
   .timeline { padding-left: 40px; }
