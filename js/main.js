@@ -29,3 +29,20 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.timeline-item').forEach(item => {
   observer.observe(item);
 });
+
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+
+// Close menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
