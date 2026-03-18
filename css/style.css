@@ -285,8 +285,8 @@ ul { list-style: none; }
 }
 
 .bento-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
 .bento-label {
@@ -305,6 +305,31 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: nextMatchPulse 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-next-match::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+  animation: shineMove 4s ease-in-out infinite;
+}
+
+@keyframes nextMatchPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+  50% { box-shadow: 0 0 30px 4px rgba(192, 57, 43, 0.35); }
+}
+
+@keyframes shineMove {
+  0% { transform: translate(-30%, -30%); }
+  50% { transform: translate(10%, 10%); }
+  100% { transform: translate(-30%, -30%); }
 }
 
 .bento-next-match .bento-label {
@@ -372,10 +397,23 @@ ul { list-style: none; }
 
 .bento-score strong {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 900;
   display: block;
   margin: 8px 0;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.bento-result:hover .bento-score strong {
+  transform: scale(1.15);
+}
+
+.bento-result:hover .score-win {
+  text-shadow: 0 0 20px rgba(27, 107, 58, 0.5);
+}
+
+.bento-result:hover .score-loss {
+  text-shadow: 0 0 20px rgba(192, 57, 43, 0.5);
 }
 
 .score-win { color: var(--eagle-green); }
@@ -410,6 +448,13 @@ ul { list-style: none; }
   font-weight: 900;
   color: var(--mountain-gold);
   margin: 8px 0 16px;
+  text-shadow: 0 0 30px rgba(212, 160, 23, 0.3);
+  animation: rankGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes rankGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(212, 160, 23, 0.2); }
+  50% { text-shadow: 0 0 40px rgba(212, 160, 23, 0.5); }
 }
 
 .bento-rank sup {
