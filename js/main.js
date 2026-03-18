@@ -30,6 +30,11 @@ document.querySelectorAll('.timeline-item').forEach(item => {
   observer.observe(item);
 });
 
+// Observe all animated elements
+document.querySelectorAll('.fade-in, .fade-in-stagger').forEach(el => {
+  observer.observe(el);
+});
+
 // Mobile menu toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.querySelector('.nav-links');
