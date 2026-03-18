@@ -122,8 +122,15 @@ ul { list-style: none; }
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--mountain-gold);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(212, 160, 23, 0.3);
+  color: white;
 }
 
 /* === HERO === */
@@ -243,9 +250,31 @@ ul { list-style: none; }
   50% { opacity: 1; transform: scaleY(1); }
 }
 
+/* === PAGE LOAD ANIMATION === */
+body {
+  animation: pageLoad 0.8s ease;
+}
+
+@keyframes pageLoad {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* === SECTION UTILITIES === */
 .section {
   padding: 100px 0;
+  position: relative;
+}
+
+.section + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--mountain-gold), transparent);
 }
 
 .container {
@@ -874,8 +903,8 @@ ul { list-style: none; }
   line-height: 1.8;
 }
 
-.footer-link {
-  color: var(--mountain-gold) !important;
+.footer-contact p.footer-link {
+  color: var(--mountain-gold);
 }
 
 .footer-social-links {
@@ -985,9 +1014,10 @@ ul { list-style: none; }
   .bento-next-match { grid-column: span 1; }
 
   /* Team */
-  .jersey-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .jersey-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .jersey-number { font-size: 2.2rem; }
-  .jersey-lastname { font-size: 0.75rem; }
+  .jersey-card { padding: 16px 12px; }
+  .jersey-lastname { font-size: 0.75rem; letter-spacing: 1px; }
 
   /* Timeline */
   .history-tabs { flex-wrap: wrap; gap: 2px; }
@@ -1002,6 +1032,21 @@ ul { list-style: none; }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* === RESPONSIVE — SMALL PHONE === */
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.4rem; letter-spacing: 4px; }
+  .hero-logo { width: 100px; margin-bottom: 20px; }
+  .section-title { font-size: 1.6rem; letter-spacing: 2px; }
+  .bento-card { padding: 20px; }
+  .bento-team-home { font-size: 1.5rem; }
+  .bento-score strong { font-size: 1.8rem; }
+  .jersey-number { font-size: 1.8rem; }
+  .history-tab { padding: 8px 12px; font-size: 0.85rem; }
+  .history-year { font-size: 2.8rem; }
+  .history-title { font-size: 1rem; }
+  .se-stat-number { font-size: 2rem; }
 }
 
 /* === SCROLL ANIMATIONS === */

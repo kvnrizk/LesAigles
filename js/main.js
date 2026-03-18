@@ -11,14 +11,33 @@ setInterval(() => {
   slides[currentSlide].classList.add('active');
 }, 3000);
 
-// Nav background on scroll
+// Nav background on scroll + active link tracking
 const nav = document.getElementById('nav');
+const sections = document.querySelectorAll('.section, .hero');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
 window.addEventListener('scroll', () => {
+  // Nav background
   if (window.scrollY > 80) {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
   }
+
+  // Active section tracking
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (window.scrollY >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+  navAnchors.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) {
+      a.classList.add('active');
+    }
+  });
 });
 
 // Scroll-triggered animations
