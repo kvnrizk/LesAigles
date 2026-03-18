@@ -51,6 +51,38 @@ historyTabs.forEach(tab => {
   });
 });
 
+// Count-up animation for stat numbers
+function animateCount(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1500;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const current = Math.round(target * eased);
+    el.textContent = current + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// Observer for count-up — triggers once when stat cards enter view
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.se-stat-number[data-target]').forEach(el => {
+  countObserver.observe(el);
+});
+
 // Observe all animated elements
 document.querySelectorAll('.fade-in, .fade-in-stagger').forEach(el => {
   observer.observe(el);

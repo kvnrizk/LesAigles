@@ -713,8 +713,15 @@ ul { list-style: none; }
 .se-schedule-item {
   display: flex;
   gap: 20px;
-  padding: 12px 0;
+  padding: 12px 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.se-schedule-item:hover {
+  background: rgba(27, 107, 58, 0.08);
+  padding-left: 16px;
 }
 
 .se-schedule-item:last-child {
@@ -747,6 +754,13 @@ ul { list-style: none; }
   border-radius: 12px;
   padding: 24px;
   text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.se-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 160, 23, 0.3);
+  box-shadow: 0 8px 30px rgba(212, 160, 23, 0.1);
 }
 
 .se-stat-number {
@@ -755,6 +769,12 @@ ul { list-style: none; }
   font-weight: 900;
   color: var(--mountain-gold);
   margin-bottom: 4px;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.se-stat-card:hover .se-stat-number {
+  transform: scale(1.1);
+  text-shadow: 0 0 30px rgba(212, 160, 23, 0.4);
 }
 
 .se-stat-card p {
