@@ -370,3 +370,81 @@ ul { list-style: none; }
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+/* === TEAM === */
+.equipe {
+  background: var(--forest-dark);
+}
+
+.position-group {
+  margin-bottom: 48px;
+}
+
+.position-group:last-child {
+  margin-bottom: 0;
+}
+
+.position-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.player-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--eagle-green);
+  box-shadow: 0 8px 30px rgba(27, 107, 58, 0.15);
+}
+
+.player-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest-dark), #1a3d2a);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-number {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--mountain-gold);
+}
+
+.player-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.player-position {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
