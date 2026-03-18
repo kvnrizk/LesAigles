@@ -519,79 +519,102 @@ ul { list-style: none; }
   margin-top: 2px;
 }
 
-/* === HISTORY TIMELINE === */
+/* === HISTORY TABS === */
 .histoire {
   background: var(--deep-black);
 }
 
-.timeline {
-  position: relative;
-  padding-left: 60px;
+.history-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 0;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--mountain-gold), var(--mountain-gold), transparent);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 56px;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.timeline-item.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -48px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--mountain-gold);
-  border: 3px solid var(--deep-black);
-  box-shadow: 0 0 0 2px var(--mountain-gold);
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-year {
+.history-tab {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 1.1rem;
   font-weight: 900;
-  color: var(--mountain-gold);
-  line-height: 1;
-  margin-bottom: 8px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 1px;
 }
 
-.timeline-content h3 {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 8px;
+.history-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--mountain-gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
-.timeline-content p {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
+.history-tab:hover {
   color: var(--body-text);
-  line-height: 1.8;
-  max-width: 600px;
+}
+
+.history-tab.active {
+  color: var(--mountain-gold);
+}
+
+.history-tab.active::after {
+  transform: scaleX(1);
+}
+
+.history-panels {
+  position: relative;
+  min-height: 180px;
+}
+
+.history-panel {
+  display: none;
+  animation: panelFadeIn 0.4s ease;
+}
+
+.history-panel.active {
+  display: block;
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.history-year {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(212, 160, 23, 0.12);
+  line-height: 1;
+  margin-bottom: -20px;
+  letter-spacing: 4px;
+}
+
+.history-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.history-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--body-text);
+  line-height: 1.9;
+  max-width: 650px;
 }
 
 /* === SPORT-ÉTUDES === */
@@ -902,10 +925,10 @@ ul { list-style: none; }
   .jersey-lastname { font-size: 0.75rem; }
 
   /* Timeline */
-  .timeline { padding-left: 40px; }
-  .timeline::before { left: 10px; }
-  .timeline-item::before { left: -38px; }
-  .timeline-year { font-size: 1.8rem; }
+  .history-tabs { flex-wrap: wrap; gap: 2px; }
+  .history-tab { padding: 10px 16px; font-size: 0.95rem; }
+  .history-year { font-size: 3.5rem; }
+  .history-title { font-size: 1.2rem; }
 
   /* Sport-Études */
   .section-tagline { font-size: 1rem; }

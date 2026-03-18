@@ -35,9 +35,20 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe timeline items
-document.querySelectorAll('.timeline-item').forEach(item => {
-  observer.observe(item);
+// History tabs interaction
+const historyTabs = document.querySelectorAll('.history-tab');
+const historyPanels = document.querySelectorAll('.history-panel');
+
+historyTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const year = tab.dataset.year;
+
+    historyTabs.forEach(t => t.classList.remove('active'));
+    historyPanels.forEach(p => p.classList.remove('active'));
+
+    tab.classList.add('active');
+    document.querySelector(`.history-panel[data-year="${year}"]`).classList.add('active');
+  });
 });
 
 // Observe all animated elements
