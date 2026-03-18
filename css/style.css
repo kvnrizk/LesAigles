@@ -43,3 +43,133 @@ ul { list-style: none; }
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Lora', Georgia, serif;
 }
+
+/* === NAVIGATION === */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(13, 31, 21, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 48px;
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  transition: height 0.4s ease;
+}
+
+.nav.scrolled .nav-logo-img {
+  height: 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--body-text);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--mountain-gold);
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--forest-dark) 0%, #1a3d2a 40%, var(--forest-dark) 100%);
+  overflow: hidden;
+}
+
+.hero-mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(transparent, var(--deep-black));
+  clip-path: polygon(0% 60%, 8% 40%, 15% 55%, 25% 25%, 35% 50%, 45% 15%, 55% 45%, 65% 20%, 75% 50%, 85% 30%, 92% 55%, 100% 35%, 100% 100%, 0% 100%);
+  opacity: 0.15;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-logo {
+  width: 160px;
+  height: auto;
+  margin: 0 auto 32px;
+  filter: drop-shadow(0 4px 30px rgba(212, 160, 23, 0.2));
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--mountain-gold);
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-scroll span {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--mountain-gold);
+  margin: 8px auto 0;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
