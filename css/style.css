@@ -523,3 +523,142 @@ ul { list-style: none; }
   line-height: 1.8;
   max-width: 600px;
 }
+
+/* === SPORT-ÉTUDES === */
+.sport-etudes {
+  background: var(--forest-dark);
+}
+
+.section-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--body-text);
+  margin-top: -32px;
+  margin-bottom: 48px;
+}
+
+.se-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.se-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: white;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.se-text h3:first-child {
+  margin-top: 0;
+}
+
+.se-text p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--body-text);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.se-schedule {
+  margin-top: 16px;
+}
+
+.se-schedule-item {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.se-schedule-item:last-child {
+  border-bottom: none;
+}
+
+.se-time {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--mountain-gold);
+  min-width: 140px;
+  font-weight: 700;
+}
+
+.se-activity {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--body-text);
+}
+
+.se-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.se-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.se-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--mountain-gold);
+  margin-bottom: 4px;
+}
+
+.se-stat-card p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.se-info-card {
+  background: rgba(27, 107, 58, 0.1);
+  border: 1px solid rgba(27, 107, 58, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.se-info-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.se-info-card p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--body-text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.se-cta {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mountain-gold);
+  border: 1px solid var(--mountain-gold);
+  padding: 10px 24px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.se-cta:hover {
+  background: var(--mountain-gold);
+  color: var(--forest-dark);
+}
