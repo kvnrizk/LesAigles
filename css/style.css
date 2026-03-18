@@ -173,3 +173,200 @@ ul { list-style: none; }
   0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
   50% { opacity: 1; transform: scaleY(1); }
 }
+
+/* === SECTION UTILITIES === */
+.section {
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--mountain-gold);
+  margin-bottom: 48px;
+  letter-spacing: 2px;
+}
+
+/* === MATCHES — BENTO GRID === */
+.matches {
+  background: var(--deep-black);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+
+.bento-card {
+  background: var(--dark-card);
+  border-radius: 12px;
+  padding: 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bento-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.bento-next-match {
+  grid-row: span 2;
+  background: var(--beak-red);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bento-next-match .bento-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bento-next-teams {
+  margin: 16px 0;
+}
+
+.bento-team-home {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  display: block;
+}
+
+.bento-vs {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin: 4px 0;
+}
+
+.bento-team-away {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  display: block;
+}
+
+.bento-next-details {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bento-next-details span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bento-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bento-score {
+  margin: 8px 0;
+}
+
+.bento-score span {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--body-text);
+  display: block;
+}
+
+.bento-score strong {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  display: block;
+  margin: 8px 0;
+}
+
+.score-win { color: var(--eagle-green); }
+.score-loss { color: var(--beak-red); }
+
+.bento-tag {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.tag-win {
+  background: rgba(27, 107, 58, 0.2);
+  color: var(--eagle-green);
+}
+
+.tag-loss {
+  background: rgba(192, 57, 43, 0.2);
+  color: var(--beak-red);
+}
+
+.bento-standings {
+  text-align: center;
+}
+
+.bento-rank {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--mountain-gold);
+  margin: 8px 0 16px;
+}
+
+.bento-rank sup {
+  font-size: 1rem;
+  vertical-align: super;
+}
+
+.bento-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bento-stats div {
+  text-align: center;
+}
+
+.bento-stats strong {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: white;
+  display: block;
+}
+
+.bento-stats span {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
