@@ -593,102 +593,83 @@ body {
   margin-top: 2px;
 }
 
-/* === HISTORY TABS === */
+/* === HISTORY CAROUSEL === */
 .histoire {
   background: var(--deep-black);
+  overflow: hidden;
 }
 
-.history-tabs {
+.history-track-wrapper {
+  overflow: hidden;
+  padding: 0 0 20px;
+  mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+.history-track {
   display: flex;
-  gap: 4px;
-  margin-bottom: 40px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.06);
-  padding-bottom: 0;
+  gap: 24px;
+  padding: 0 48px;
+  animation: historyScroll 25s linear infinite;
+  width: max-content;
 }
 
-.history-tab {
+.history-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes historyScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.history-card {
+  flex-shrink: 0;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.history-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--mountain-gold);
+  box-shadow: 0 12px 40px rgba(212, 160, 23, 0.1);
+}
+
+.history-card-year {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--muted);
-  background: none;
-  border: none;
-  padding: 12px 24px;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.3s ease;
-  letter-spacing: 1px;
-}
-
-.history-tab::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--mountain-gold);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.history-tab:hover {
-  color: var(--body-text);
-}
-
-.history-tab.active {
-  color: var(--mountain-gold);
-}
-
-.history-tab.active::after {
-  transform: scaleX(1);
-}
-
-.history-panels {
-  position: relative;
-  min-height: 180px;
-}
-
-.history-panel {
-  display: none;
-  animation: panelFadeIn 0.4s ease;
-}
-
-.history-panel.active {
-  display: block;
-}
-
-@keyframes panelFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.history-year {
-  font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--mountain-gold);
   line-height: 1;
-  margin-bottom: 12px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
-.history-title {
+.history-card-line {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--eagle-green), transparent);
+  margin: 12px 0 16px;
+}
+
+.history-card-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 900;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-.history-text {
+.history-card-text {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--body-text);
-  line-height: 1.9;
-  max-width: 650px;
+  line-height: 1.7;
 }
 
 /* === SPORT-ÉTUDES === */
@@ -1019,11 +1000,10 @@ body {
   .jersey-card { padding: 16px 12px; }
   .jersey-lastname { font-size: 0.75rem; letter-spacing: 1px; }
 
-  /* Timeline */
-  .history-tabs { flex-wrap: wrap; gap: 2px; }
-  .history-tab { padding: 10px 16px; font-size: 0.95rem; }
-  .history-year { font-size: 3.5rem; }
-  .history-title { font-size: 1.2rem; }
+  /* History */
+  .history-track { padding: 0 20px; gap: 16px; }
+  .history-card { width: 260px; padding: 24px 20px; }
+  .history-card-year { font-size: 2.4rem; }
 
   /* Sport-Études */
   .section-tagline { font-size: 1rem; }
@@ -1043,9 +1023,8 @@ body {
   .bento-team-home { font-size: 1.5rem; }
   .bento-score strong { font-size: 1.8rem; }
   .jersey-number { font-size: 1.8rem; }
-  .history-tab { padding: 8px 12px; font-size: 0.85rem; }
-  .history-year { font-size: 2.8rem; }
-  .history-title { font-size: 1rem; }
+  .history-card { width: 240px; }
+  .history-card-year { font-size: 2rem; }
   .se-stat-number { font-size: 2rem; }
 }
 

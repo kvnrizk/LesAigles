@@ -54,21 +54,11 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// History tabs interaction
-const historyTabs = document.querySelectorAll('.history-tab');
-const historyPanels = document.querySelectorAll('.history-panel');
-
-historyTabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const year = tab.dataset.year;
-
-    historyTabs.forEach(t => t.classList.remove('active'));
-    historyPanels.forEach(p => p.classList.remove('active'));
-
-    tab.classList.add('active');
-    document.querySelector(`.history-panel[data-year="${year}"]`).classList.add('active');
-  });
-});
+// History carousel — duplicate cards for infinite scroll
+const historyTrack = document.querySelector('.history-track');
+if (historyTrack) {
+  historyTrack.innerHTML += historyTrack.innerHTML;
+}
 
 // Count-up animation for stat numbers
 function animateCount(el) {
