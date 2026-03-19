@@ -46,7 +46,7 @@ html {
 body {
   background: var(--deep-black);
   color: var(--body-text);
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Satoshi', Helvetica, Arial, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -74,7 +74,7 @@ ul { list-style: none; }
   --muted: #888888;
   --dark-card: #222222;
   --font-heading: 'Satoshi', 'Arial Black', Helvetica, sans-serif;
-  --font-body: 'Lora', Georgia, serif;
+  --font-body: 'Satoshi', Helvetica, Arial, sans-serif;
 }
 
 /* === NAVIGATION === */
