@@ -330,7 +330,7 @@ body {
 
 .bento-next-match {
   grid-row: span 2;
-  background: var(--beak-red);
+  background: linear-gradient(160deg, var(--beak-red), #8B1A1A);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -339,15 +339,16 @@ body {
   overflow: hidden;
 }
 
-.bento-next-match::before {
-  content: '';
+.bento-next-watermark {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
-  animation: shineMove 4s ease-in-out infinite;
+  bottom: -20px;
+  right: -10px;
+  font-family: var(--font-heading);
+  font-size: 10rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 1;
+  pointer-events: none;
 }
 
 @keyframes nextMatchPulse {
@@ -355,14 +356,10 @@ body {
   50% { box-shadow: 0 0 30px 4px rgba(192, 57, 43, 0.35); }
 }
 
-@keyframes shineMove {
-  0% { transform: translate(-30%, -30%); }
-  50% { transform: translate(10%, 10%); }
-  100% { transform: translate(-30%, -30%); }
-}
-
 .bento-next-match .bento-label {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
 }
 
 .bento-next-teams {
@@ -371,30 +368,32 @@ body {
 
 .bento-team-home {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 900;
   color: white;
   display: block;
+  letter-spacing: 3px;
 }
 
 .bento-vs {
   font-family: var(--font-body);
-  font-style: italic;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
   display: block;
-  margin: 4px 0;
+  margin: 6px 0;
+  letter-spacing: 2px;
 }
 
 .bento-team-away {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
   display: block;
 }
 
 .bento-next-details {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -402,47 +401,70 @@ body {
 
 .bento-next-details span {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
+/* Result cards — big scores */
 .bento-result {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.bento-score {
-  margin: 8px 0;
+.bento-result-label {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
 }
 
-.bento-score span {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: var(--body-text);
-  display: block;
+.bento-score {
+  margin: 4px 0;
 }
 
 .bento-score strong {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 3.2rem;
   font-weight: 900;
   display: block;
-  margin: 8px 0;
+  letter-spacing: 2px;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
 .bento-result:hover .bento-score strong {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .bento-result:hover .score-win {
-  text-shadow: 0 0 20px rgba(27, 107, 58, 0.5);
+  text-shadow: 0 0 25px rgba(27, 107, 58, 0.5);
 }
 
 .bento-result:hover .score-loss {
-  text-shadow: 0 0 20px rgba(192, 57, 43, 0.5);
+  text-shadow: 0 0 25px rgba(192, 57, 43, 0.5);
+}
+
+.bento-opponent {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--body-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.bento-date {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 4px;
 }
 
 .score-win { color: var(--eagle-green); }
